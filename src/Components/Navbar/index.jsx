@@ -132,7 +132,7 @@ export default function Navbar() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-           Empresa Qualquer
+            
           </Typography>
         </Toolbar>
       </AppBar>
@@ -194,7 +194,7 @@ export default function Navbar() {
             </ListItem>
           ))}
         </List>
-        <List>
+        {/* <List>
           {['Usuário'].map((text) => (
             <ListItem button key={text} component={Link} to={'/users'}>
               <ListItemIcon>
@@ -204,16 +204,16 @@ export default function Navbar() {
               <ListItemText primary={text} />
             </ListItem>
           ))}
-        </List>
+        </List> */}
         <Divider />
         <List>
           {['E-mail'].map((text) => (
             <ListItem button key={text} component={Link} to={'/login'}>
               <ListItemIcon>
-                <MailIcon />
+              <GroupIcon />
               </ListItemIcon>
 
-              <ListItemText primary={text} />
+              <ListItemText prim  ary={text} />
             </ListItem>
           ))}
         </List>
