@@ -1,131 +1,119 @@
-import React from 'react';
+import React from "react";
+import Avatar from "@material-ui/core/Avatar";
+import Button from "@material-ui/core/Button";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import TextField from "@material-ui/core/TextField";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Checkbox from "@material-ui/core/Checkbox";
 
-import ArrayStore from 'devextreme/data/array_store';
-import List from 'devextreme-react/list';
-import TileView from 'devextreme-react/tile-view';
-import './Style.css'
-import { data } from './data';
+import Grid from "@material-ui/core/Grid";
+import Box from "@material-ui/core/Box";
+import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
+import {Link } from "react-router-dom"
 
-const dataSourceOptions = {
-  store: new ArrayStore({
-    data: data,
-    key: 'Id'
-  }),
-  group: 'City',
-  searchExpr: ['Hotel_Name', 'City', 'Address']
-};
-
-const listAttrs = { class: 'list' };
-const tileViewAttrs = { class: 'tile' };
-const formatCurrency = new Intl.NumberFormat(
-  'en-US', {
-    style: 'currency',
-    currency: 'USD',
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 0
-  }
-).format;
-
-class EmailPosto extends React.Component {
-
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      currentHotel: data[0],
-      selectedItemKeys: [data[0].Id]
-    };
-
-    this.handleListSelectionChange = this.handleListSelectionChange.bind(this);
-  }
-
-  render() {
-    const currentHotel = this.state.currentHotel;
-    return (
-      <React.Fragment>
-        <div className="left">
-          <List
-            selectionMode="single"
-            dataSource={dataSourceOptions}
-            grouped={true}
-            searchEnabled={true}
-            selectedItemKeys={this.state.selectedItemKeys}
-            onSelectionChanged={this.handleListSelectionChange}
-            itemRender={renderListItem}
-            groupRender={renderListGroup}
-            elementAttr={listAttrs}
-          />
-        </div>
-
-        <div className="right">
-          <div className="header">
-            <div className="name-container">
-              <div className="name">{currentHotel.Hotel_Name}</div>
-              <div className={`type ${currentHotel.Hotel_Class.toLowerCase()}`} />
-            </div>
-            <div className="price-container">
-              <div className="price">{formatCurrency(currentHotel.Price)}</div>
-              &nbsp;
-              <div className="caption">per<br />night</div>
-            </div>
-          </div>
-
-          <TileView
-            dataSource={currentHotel.Images}
-            height={224}
-            baseItemHeight={100}
-            baseItemWidth={137}
-            itemMargin={12}
-            noDataText=""
-            itemRender={renderTile}
-            elementAttr={tileViewAttrs}
-          />
-
-          <div className="address">{currentHotel.Postal_Code}, {currentHotel.Address}</div>
-          <div className="description">{currentHotel.Description}</div>
-        </div>
-      </React.Fragment>
-    );
-  }
-
-  handleListSelectionChange(e) {
-    const currentHotel = e.addedItems[0];
-    this.setState({
-      currentHotel,
-      selectedItemKeys: [currentHotel.Id]
-    });
-  }
-}
-
-function renderListGroup(group) {
-  return <div className="city">{group.key}</div>;
-}
-
-function renderListItem(item) {
+function Copyright() {
   return (
-    <div>
-      <div className="hotel">
-        <div className="name">{item.Hotel_Name}</div>
-        <div className="address">{`${item.Postal_Code}, ${item.Address}`}</div>
-        <div className={`type ${item.Hotel_Class.toLowerCase()}`} />
-      </div>
-      <div className="price-container">
-        <div className="price">{formatCurrency(item.Price)}</div>
-        &nbsp;
-        <div className="caption">per<br />night</div>
-      </div>
-    </div>
+    <Typography variant="body2" color="textSecondary" align="center">
+      {"Copyright © "}
+     
+      {new Date().getFullYear()}
+      {"."}
+    </Typography>
   );
 }
 
-function renderTile(item) {
+const useStyles = makeStyles((theme) => ({
+  paper: {
+    marginTop: theme.spacing(8),
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+  avatar: {
+    margin: theme.spacing(1),
+    backgroundColor: theme.palette.secondary.main,
+  },
+  form: {
+    width: "100%", // Fix IE 11 issue.
+    marginTop: theme.spacing(1),
+  },
+  submit: {
+    margin: theme.spacing(3, 0, 2),
+  },
+}));
+
+export default function Loginn() {
+  const classes = useStyles();
+
   return (
-    <div
-      className="tile-image"
-      style={{ backgroundImage: `url(images/hotels/${item.FileName})` }}
-    />
+    <Container component="main" maxWidth="xs">
+      <CssBaseline />
+      <div className={classes.paper}>
+        <Avatar className={classes.avatar}>
+          <LockOutlinedIcon />
+        </Avatar>
+        <Typography component="h1" variant="h5">
+          Sign in
+        </Typography>
+        <form className={classes.form} noValidate>
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="email"
+            label="Endereço de E-mail"
+            name="email"
+            autoComplete="email"
+            autoFocus
+          />
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            name="password"
+            label="Senha"
+            type="password"
+            id="password"
+            autoComplete="current-password"
+          />
+          <FormControlLabel
+            control={<Checkbox value="remember" color="primary" />}
+            label="Lembar-me"
+          />
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            color="primary"
+            className={classes.submit}
+            component={Link}
+            to={"/"}
+          >
+           Entrar
+          </Button>
+          <Grid container>
+            <Grid item xs>
+              <Link href="#" variant="body2">
+               Esqueceu a senha
+              </Link>
+            </Grid>
+            <Grid item>
+              <Link component={Link}
+               to={"/registraradmin"}>
+                {"Não é cadastrado? Cadastre-se"}
+              </Link>
+            </Grid>
+          </Grid>
+        </form>
+      </div>
+      <Box mt={8}>
+        <Copyright />
+      </Box>
+    </Container>
   );
 }
-
-export default EmailPosto;
-

@@ -208,7 +208,7 @@ export default function Navbar() {
         <Divider />
         <List>
           {['E-mail'].map((text) => (
-            <ListItem button key={text} component={Link} to={'/users'}>
+            <ListItem button key={text} component={Link} to={'/login'}>
               <ListItemIcon>
                 <MailIcon />
               </ListItemIcon>
@@ -219,7 +219,7 @@ export default function Navbar() {
         </List>
         <List>
           {['Configurações'].map((text) => (
-            <ListItem button key={text} component={Link} to={'/users'}>
+            <ListItem button key={text} component={Link} to={'/registraradmin'}>
               <ListItemIcon>
                 <BuildIcon/>
               </ListItemIcon>

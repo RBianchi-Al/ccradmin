@@ -1,11 +1,11 @@
 import React from 'react';
-import Navbar from '../../Components/Navbar'
+import Loginn from '../../Components/EmailPosto'
 
 // import { Container } from './styles';
 
 function Login() {
   return (
-    <Navbar/>
+    <Loginn/>
   );
 }
 
