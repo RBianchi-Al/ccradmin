@@ -1,7 +1,9 @@
 import React from "react";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
-import Upload from '../Postos'
+import Upload from "../Postos";
+import Maps from '../Maps'
+
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -41,9 +43,9 @@ export default function FormPosto() {
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setCurrency(event.target.value);
-    console.log(currency)
+    console.log(currency);
   };
-  console.log(handleChange)
+  console.log(handleChange);
 
   return (
     <div className={classes.root}>
@@ -62,7 +64,7 @@ export default function FormPosto() {
           variant="outlined"
         />
 
-        <TextField
+        {/* <TextField
           label="Latitude"
           id="outlined-margin-normal"
           defaultValue=" "
@@ -70,6 +72,7 @@ export default function FormPosto() {
           helperText="Somente números"
           margin="normal"
           variant="outlined"
+          
         />
         <TextField
           label="Longitude"
@@ -79,7 +82,8 @@ export default function FormPosto() {
           helperText=" "
           margin="normal"
           variant="outlined"
-        />
+        /> */}
+        <Maps/>
         <TextField
           label="Telefone"
           id="outlined-margin-normal"
@@ -136,6 +140,7 @@ export default function FormPosto() {
           margin="normal"
           variant="outlined"
         />
+
         <TextField
           label="Latitude"
           id="outlined-margin-normal"
@@ -144,7 +149,10 @@ export default function FormPosto() {
           helperText="Somente números"
           margin="normal"
           variant="outlined"
-        />
+        >
+         
+        </TextField>
+
         <TextField
           label="Longitude"
           id="outlined-margin-normal"
@@ -177,7 +185,7 @@ export default function FormPosto() {
           }}
           variant="outlined"
         />
-        <Upload/>
+        <Upload />
       </div>
     </div>
   );

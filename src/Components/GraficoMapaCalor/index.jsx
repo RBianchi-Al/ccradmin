@@ -22,7 +22,7 @@ export default function MapaCalor() {
     <Chart
       id="chart"
       title={
-        "Mapa de calor: São Paulo (02/2020)" 
+        "Mapa de calor: CCR Via Oeste (Castelo Branco) - SP (02/2020)" 
       }
       
       palette={palette}

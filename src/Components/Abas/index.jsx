@@ -6,7 +6,7 @@ import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import Form from "../../Components/Form";
-import FormPosto from '../Form copy'
+import FormPosto from "../Form copy";
 
 interface TabPanelProps {
   children?: React.ReactNode;
@@ -90,7 +90,7 @@ export default function Abas() {
         <Form />
       </TabPanel>
       <TabPanel value={value} index={3}>
-      Inserir Formulário de Cadastro 4
+        <Form />
       </TabPanel>
       {/* <TabPanel value={value} index={4}>
       Inserir Formulário de Cadastro 5
